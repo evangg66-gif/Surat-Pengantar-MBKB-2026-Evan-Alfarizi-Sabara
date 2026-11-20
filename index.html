@@ -64,24 +64,43 @@
       border-radius: 4px;
       user-select: none;
     }
-    /* Area klik transparan sejajar pas di atas tombol biru "Lihat Validitas Dokumen" */
-    .validity-hotspot {
+
+    /* Penutup putih mulus untuk menghapus tombol lama di gambar */
+    .whiteout-patch {
       position: absolute;
-      left: 3.1%;
-      top: 55.2%;
-      width: 15.6%;
-      height: 3.6%;
-      background: transparent;
-      color: transparent;
-      font-size: 0;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      padding: 0;
-      z-index: 20;
+      left: 2.2%;
+      top: 53.6%;
+      width: 22%;
+      height: 6.4%;
+      background: #ffffff;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding-left: 1%;
     }
-    .validity-hotspot:hover {
-      background: rgba(255, 255, 255, 0.1);
+
+    /* Tombol baru "Lihat Validitas Dokumen" yang sejajar rapi dan bisa diklik */
+    .btn-validity-new {
+      background: #1d3d5e;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      padding: 0.65em 1.25em;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: clamp(11px, 1.35vw, 14px);
+      font-weight: 600;
+      line-height: 1.2;
+      white-space: nowrap;
+      cursor: pointer;
+      box-shadow: 0 3px 8px rgba(29, 61, 94, 0.25);
+      transition: background 0.18s ease, transform 0.1s ease;
+    }
+    .btn-validity-new:hover {
+      background: #152d46;
+    }
+    .btn-validity-new:active {
+      transform: scale(0.98);
     }
 
     /* Modal Validitas Dokumen */
@@ -233,7 +252,9 @@
     <section class="doc-box">
       <div class="doc-img-wrap">
         <img src="./Surat-Pengantar-MBKB-2026-Evan%20Alfarizi%20Sabara.png" alt="Surat Pengantar MBKB FEB UB 2026 atas nama Evan Alfarizi Sabara">
-        <button type="button" class="validity-hotspot" id="openValidityBtn" onclick="openValidityModal()" aria-label="Lihat Validitas Dokumen"></button>
+        <div class="whiteout-patch">
+          <button type="button" class="btn-validity-new" id="openValidityBtn" onclick="openValidityModal()">Lihat Validitas Dokumen</button>
+        </div>
       </div>
     </section>
   </main>
