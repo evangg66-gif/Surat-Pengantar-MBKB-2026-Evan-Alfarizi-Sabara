@@ -6,6 +6,9 @@
   <meta name="description" content="Dokumen resmi Surat Pengantar Merdeka Belajar Kampus Berdampak (MBKB) 2026 — Fakultas Ekonomi dan Bisnis, Universitas Brawijaya (FEB UB) atas nama Evan Alfarizi Sabara.">
   <title>Surat Pengantar MBKB FEB UB 2026 - Evan Alfarizi Sabara</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
     html, body {
       margin: 0;
       padding: 0;
@@ -14,25 +17,25 @@
       color: #1f2937;
     }
     .page {
-      max-width: 960px;
-      margin: 32px auto;
+      max-width: 980px;
+      margin: 28px auto 48px;
       padding: 0 16px;
     }
     .header-card {
       background: #ffffff;
-      padding: 24px 28px;
+      padding: 22px 26px;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
       margin-bottom: 20px;
-      border-left: 5px solid #0f2c59;
+      border-left: 5px solid #1d3d5e;
     }
     .header-card h1 {
       margin: 0 0 6px 0;
-      font-size: 1.35rem;
-      color: #0f2c59;
+      font-size: 1.3rem;
+      color: #1d3d5e;
     }
     .header-card .subtitle {
-      margin: 0 0 12px 0;
+      margin: 0 0 10px 0;
       font-size: 0.95rem;
       font-weight: 600;
       color: #4b5563;
@@ -43,15 +46,175 @@
       line-height: 1.55;
       color: #374151;
     }
-    .doc-wrapper {
+    .doc-box {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    }
+    .doc-img-wrap {
       text-align: center;
     }
-    img {
+    .doc-img-wrap img {
       max-width: 100%;
       height: auto;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+      display: block;
+      margin: 0 auto;
+    }
+    .action-bar {
+      margin-top: 18px;
+      display: flex;
+      justify-content: flex-start;
+    }
+    .btn-navy {
+      background: #1d3d5e;
+      color: #ffffff;
+      border: none;
       border-radius: 6px;
+      padding: 11px 22px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(29, 61, 94, 0.25);
+      transition: background 0.2s ease, transform 0.1s ease;
+    }
+    .btn-navy:hover {
+      background: #152d46;
+    }
+    .btn-navy:active {
+      transform: scale(0.99);
+    }
+
+    /* Modal Validitas Dokumen */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.55);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      z-index: 999;
+      overflow-y: auto;
+    }
+    .modal-backdrop.active {
+      display: flex;
+    }
+    .modal-panel {
+      position: relative;
+      width: 100%;
+      max-width: 780px;
       background: #ffffff;
+      border-radius: 6px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+      overflow: hidden;
+      max-height: 92vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .modal-top-bar {
+      background: #f3f4f6;
+      padding: 14px 22px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .modal-doc-num {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: #1d3d5e;
+      margin: 0 0 3px 0;
+    }
+    .modal-doc-sub {
+      font-size: 0.86rem;
+      color: #4b5563;
+      margin: 0;
+    }
+    .modal-body {
+      position: relative;
+      padding: 28px 24px 24px;
+      overflow-y: auto;
+      text-align: center;
+    }
+    .ribbon-valid {
+      position: absolute;
+      top: 16px;
+      right: -34px;
+      background: #d9232e;
+      color: #ffffff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 5px 42px;
+      transform: rotate(45deg);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+    .valid-title {
+      margin: 6px 0 6px 0;
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: #1e3a5f;
+    }
+    .tsa-label {
+      font-size: 0.88rem;
+      color: #6b7280;
+      margin-bottom: 18px;
+    }
+    .sig-count {
+      font-size: 2.3rem;
+      font-weight: 700;
+      color: #15803d;
+      line-height: 1.1;
+    }
+    .sig-label {
+      font-size: 0.92rem;
+      color: #374151;
+      margin-top: 4px;
+      margin-bottom: 22px;
+    }
+    .cert-block {
+      font-size: 0.85rem;
+      line-height: 1.65;
+      color: #1f2937;
+      max-width: 640px;
+      margin: 0 auto;
+      word-break: break-word;
+    }
+    .cert-cn {
+      font-weight: 600;
+      color: #111827;
+    }
+    .cert-dn {
+      color: #374151;
+    }
+    .cert-serial {
+      font-family: Consolas, Monaco, monospace;
+      font-size: 0.8rem;
+      color: #374151;
+    }
+    .cert-ca {
+      font-weight: 600;
+      color: #111827;
+    }
+    .cert-divider {
+      color: #9ca3af;
+      margin: 10px 0 14px;
+      letter-spacing: 0.05em;
+    }
+    .btn-close-full {
+      width: 100%;
+      margin-top: 18px;
+      background: #1d3d5e;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      padding: 11px 16px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-close-full:hover {
+      background: #152d46;
     }
   </style>
 </head>
@@ -61,14 +224,87 @@
       <h1>Surat Pengantar Program MBKB 2026</h1>
       <div class="subtitle">Fakultas Ekonomi dan Bisnis — Universitas Brawijaya</div>
       <p>
-        Halaman ini memuat dokumen Surat Pengantar kegiatan <strong>Merdeka Belajar Kampus Berdampak (MBKB) Tahun 2026</strong> 
-        atas nama <strong>Evan Alfarizi Sabara</strong>, Mahasiswa Fakultas Ekonomi dan Bisnis Universitas Brawijaya, 
+        Halaman ini memuat dokumen Surat Pengantar kegiatan <strong>Merdeka Belajar Kampus Berdampak (MBKB) Tahun 2026</strong>
+        atas nama <strong>Evan Alfarizi Sabara</strong>, Mahasiswa Fakultas Ekonomi dan Bisnis Universitas Brawijaya,
         sebagai kelengkapan administrasi resmi pelaksanaan program.
       </p>
     </header>
-    <div class="doc-wrapper">
-      <img src="./Surat-Pengantar-MBKB-2026-Evan%20Alfarizi%20Sabara.png" alt="Surat Pengantar MBKB FEB UB 2026 atas nama Evan Alfarizi Sabara">
-    </div>
+
+    <section class="doc-box">
+      <div class="doc-img-wrap">
+        <img src="./Surat-Pengantar-MBKB-2026-Evan%20Alfarizi%20Sabara.png" alt="Surat Pengantar MBKB FEB UB 2026 atas nama Evan Alfarizi Sabara">
+      </div>
+      <div class="action-bar">
+        <button type="button" class="btn-navy" id="openValidityBtn">Lihat Validitas Dokumen</button>
+      </div>
+    </section>
   </main>
+
+  <!-- Modal Detail Validitas Dokumen -->
+  <div class="modal-backdrop" id="validityModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-panel">
+      <div class="modal-top-bar">
+        <div class="modal-doc-num" id="modalTitle">Nomor 00182/DST/UN10.F0226/B/PP/2026</div>
+        <div class="modal-doc-sub">pengantar magang mbkb an Evan Alfarizi Sabara</div>
+      </div>
+
+      <div class="modal-body">
+        <div class="ribbon-valid">VALID</div>
+
+        <div class="valid-title">DOKUMEN VALID, CA:TRUE</div>
+        <div class="tsa-label">Timestamp Authority Universitas Brawijaya</div>
+
+        <div class="sig-count">2</div>
+        <div class="sig-label">Signature</div>
+
+        <div class="cert-block">
+          <div class="cert-cn">Common Name: AL MUIZZUDDIN FAZAALLOH</div>
+          <div class="cert-dn">/C=ID/ST=Jawa Timur/L=Kota Malang/O=Universitas Brawijaya/OU=DTI/CN=AL MUIZZUDDIN ...</div>
+          <div class="cert-serial">2D:D5:8C:F2:77:B1:0C:C4:30:4B:A5:C5:98:73:E3:CC:C4:03:09:34</div>
+          <div class="cert-ca">CA:TRUE</div>
+          <div class="cert-divider">-----------------------------------------</div>
+
+          <div class="cert-cn">Common Name: AL MUIZZUDDIN FAZAALLOH</div>
+          <div class="cert-dn">/C=ID/ST=Jawa Timur/L=Kota Malang/O=Universitas Brawijaya/OU=DTI/CN=AL MUIZZUDDIN ...</div>
+          <div class="cert-serial">2D:D5:8C:F2:77:B1:0C:C4:30:4B:A5:C5:98:73:E3:CC:C4:03:09:34</div>
+          <div class="cert-ca">CA:TRUE</div>
+          <div class="cert-divider">-----------------------------------------</div>
+        </div>
+
+        <button type="button" class="btn-close-full" id="closeValidityBtn">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const openBtn = document.getElementById('openValidityBtn');
+    const closeBtn = document.getElementById('closeValidityBtn');
+    const modal = document.getElementById('validityModal');
+
+    function openModal() {
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    openBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modal.classList.contains('active')) {
+        closeModal();
+      }
+    });
+  </script>
 </body>
 </html>
