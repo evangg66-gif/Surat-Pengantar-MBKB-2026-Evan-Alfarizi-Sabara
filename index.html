@@ -23,67 +23,62 @@
     }
     .header-card {
       background: #ffffff;
-      padding: 22px 26px;
+      padding: 20px 24px;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       border-left: 5px solid #1d3d5e;
     }
     .header-card h1 {
       margin: 0 0 6px 0;
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       color: #1d3d5e;
     }
     .header-card .subtitle {
-      margin: 0 0 10px 0;
-      font-size: 0.95rem;
+      margin: 0 0 8px 0;
+      font-size: 0.92rem;
       font-weight: 600;
       color: #4b5563;
     }
     .header-card p {
       margin: 0;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       line-height: 1.55;
       color: #374151;
     }
     .doc-box {
       background: #ffffff;
-      padding: 20px;
+      padding: 16px;
       border-radius: 8px;
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
     }
     .doc-img-wrap {
-      text-align: center;
+      position: relative;
+      width: 100%;
+      line-height: 0;
     }
     .doc-img-wrap img {
-      max-width: 100%;
+      width: 100%;
       height: auto;
-      border-radius: 4px;
       display: block;
-      margin: 0 auto;
+      border-radius: 4px;
     }
-    .action-bar {
-      margin-top: 18px;
-      display: flex;
-      justify-content: flex-start;
-    }
-    .btn-navy {
-      background: #1d3d5e;
-      color: #ffffff;
+    /* Area klik yang menimpa tepat di atas tombol "Lihat Validitas Dokumen" pada gambar */
+    .validity-hotspot {
+      position: absolute;
+      left: 6.2%;
+      top: 47.6%;
+      width: 15.6%;
+      height: 3.6%;
+      background: transparent;
       border: none;
-      border-radius: 6px;
-      padding: 11px 22px;
-      font-size: 0.95rem;
-      font-weight: 600;
+      border-radius: 4px;
       cursor: pointer;
-      box-shadow: 0 4px 10px rgba(29, 61, 94, 0.25);
-      transition: background 0.2s ease, transform 0.1s ease;
+      padding: 0;
     }
-    .btn-navy:hover {
-      background: #152d46;
-    }
-    .btn-navy:active {
-      transform: scale(0.99);
+    .validity-hotspot:hover {
+      background: rgba(29, 61, 94, 0.14);
+      outline: 2px solid rgba(255, 255, 255, 0.75);
     }
 
     /* Modal Validitas Dokumen */
@@ -97,6 +92,7 @@
       padding: 16px;
       z-index: 999;
       overflow-y: auto;
+      line-height: normal;
     }
     .modal-backdrop.active {
       display: flex;
@@ -117,6 +113,7 @@
       background: #f3f4f6;
       padding: 14px 22px;
       border-bottom: 1px solid #e5e7eb;
+      text-align: left;
     }
     .modal-doc-num {
       font-size: 0.98rem;
@@ -233,9 +230,7 @@
     <section class="doc-box">
       <div class="doc-img-wrap">
         <img src="./Surat-Pengantar-MBKB-2026-Evan%20Alfarizi%20Sabara.png" alt="Surat Pengantar MBKB FEB UB 2026 atas nama Evan Alfarizi Sabara">
-      </div>
-      <div class="action-bar">
-        <button type="button" class="btn-navy" id="openValidityBtn">Lihat Validitas Dokumen</button>
+        <button type="button" class="validity-hotspot" id="openValidityBtn" aria-label="Lihat Validitas Dokumen" title="Lihat Validitas Dokumen"></button>
       </div>
     </section>
   </main>
@@ -282,29 +277,4 @@
     const modal = document.getElementById('validityModal');
 
     function openModal() {
-      modal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal() {
-      modal.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    openBtn.addEventListener('click', openModal);
-    closeBtn.addEventListener('click', closeModal);
-
-    modal.addEventListener('click', function (e) {
-      if (e.target === modal) {
-        closeModal();
-      }
-    });
-
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && modal.classList.contains('active')) {
-        closeModal();
-      }
-    });
-  </script>
-</body>
-</html>
+      modal.
